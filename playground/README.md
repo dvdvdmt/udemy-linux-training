@@ -1,0 +1,1 @@
+A directory for shell scripts and other stuff

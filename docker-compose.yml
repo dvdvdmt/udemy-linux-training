@@ -1,0 +1,10 @@
+version: '3.7'
+
+services:
+  learn-linux:
+    build: ./
+    image: learn-linux
+    volumes:
+      - type: bind
+        source: ./files
+        target: /root/files
