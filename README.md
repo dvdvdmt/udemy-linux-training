@@ -2,8 +2,16 @@ An educational purpose Docker image for learning Linux https://www.udemy.com/com
 
 Commands for building and runing the container
 ```bash
+# clone it locally to your host machine
+git clone https://github.com/dvdvdmt/udemy-linux-training.git
+cd udemy-linux-training
+
+# build an image and run it
 docker image build -t learn-linux .
 docker container run -it --name learn-linux --mount type=bind,source="$(pwd)"/playground,target=/root/playground learn-linux
+
+# to stop the container
+docker container stop learn-linux
 
 # to start the container again
 docker container start -ai learn-linux
