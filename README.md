@@ -8,7 +8,7 @@ cd udemy-linux-training
 
 # build an image and run it
 docker image build -t learn-linux .
-docker container run -it --name learn-linux --mount type=bind,source="$(pwd)"/playground,target=/root/playground learn-linux
+docker container run -it --rm --name learn-linux --mount type=bind,source="$(pwd)"/playground,target=/root/playground learn-linux
 
 # to stop the container
 docker container stop learn-linux
