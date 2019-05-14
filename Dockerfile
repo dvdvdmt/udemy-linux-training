@@ -13,7 +13,9 @@ RUN yum install -y \
     bc \
     mlocate \
     tcpdump \
-    ethtool.x86_64 \
+    ethtool \
+    wget \
+    bind-utils \
     man-pages \
     man
 # update locate and man databases
