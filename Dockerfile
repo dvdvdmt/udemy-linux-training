@@ -5,19 +5,32 @@ RUN sed -i "/tsflags=nodocs/d" /etc/yum.conf
 RUN yum reinstall -y \* 
 # install additional packages
 RUN yum install -y \
-    iproute \
-    tree \
     bash-completion \
     bash-completion-extras \
-    locate \
     bc \
-    mlocate \
-    tcpdump \
-    ethtool \
-    wget \
     bind-utils \
+    ethtool \
+    ftp \
+    locate \
+    man \
     man-pages \
-    man
+    mlocate \
+    openssh-clients \
+    openssh-server \
+    scp \
+    tcpdump \
+    tree \
+    wget \
+    which \
+    iproute
+
 # update locate and man databases
-RUN /bin/updatedb && /bin/mandb
+RUN /bin/updatedb \
+    && /bin/mandb \
+    && ssh-keygen -A \
+    && echo root | passwd --stdin root
+
+COPY init.sh /root/init.sh
+RUN chmod u+x /root/init.sh
 WORKDIR /root/playground
+CMD /root/init.sh

@@ -10,6 +10,9 @@ cd udemy-linux-training
 docker image build -t learn-linux .
 docker container run -it --rm --name learn-linux --mount type=bind,source="$(pwd)"/playground,target=/root/playground learn-linux
 
+# set up a new root password (default password is 'root')
+passwd root
+
 # to stop the container
 docker container stop learn-linux
 
